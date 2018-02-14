@@ -1,0 +1,29 @@
+body {
+	background-color: black;
+}
+
+.text {
+	padding-top: 10px;
+	margin-top: 30px;
+	font-family: 'Press Start 2P';
+	border: dashed 2px #33cc33;
+	color: #33cc33;
+	text-align: center;
+}
+
+#hangman {
+	margin-top: 30px;
+	margin-left: 20px;
+	width: 70%;
+}
+
+.header-main{
+	width:100%;
+	margin:-2.5% 0 0 -1%;
+	padding:0;
+}
+
+#graphic{
+	width:130%;
+	max-height: 225px;
+}
