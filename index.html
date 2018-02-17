@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<head>
-    	<meta charset="UTF-8">
-     	<meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- Link to reset -->
+      <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 
-     	<!-- Link to reset -->
-     	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-          <!-- Bootstrap CSS -->
-          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <!-- Link to style sheet -->
+      <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
-          <!-- Link to style sheet -->
-     	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+      <!-- Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-          <!-- Bootstrap JS -->
-          <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      <!-- Link to font -->
+      <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 
-          <!-- Link to font -->
-          <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+      <!-- Link to JS -->
+      <script type="text/javascript" src="assets/javascript/game.js"></script>  
 
-
-     	<!-- Title displayed -->
-     	<title> The Greatest Decade Ever</title>
+      <!-- Title displayed -->
+      <title>Hangman: The Greatest Decade Ever</title>
      </head>
-
-     <body>
+    <body>
 
           <section class="container header-main">
 
@@ -40,8 +40,6 @@
 
           </section>
 
-
-
           <section class="container wrapper">
                <div class="row">
                     <div class="col-md-4">
@@ -50,33 +48,32 @@
           
                       <div class="col-md-8">
                           <div class="text">
-                              <p id="num-wins"> Press Space Bar to go back in time!</p>
-
-                              <p> Current 90's Word:</p>
+                              <p id="start"> Press "start" button to relive the 90's!</p>
+                              <button type="button">Start</button>
+                              <button type="button-02">Reset</button>
+                              <button type="button-03">Replay</button>
+                              <p> Current 90's clue:</p>
                               <p id="current-word">What could it be?</p>
 
                               <p>You still have guesses remaining:</p>
-                              <p id="guesses-remaining">15</p>
+                              <p id="guesses-remaining">10</p>
 
                               <p>The alphabet only has 26 letters, you've already used these:</p>
 
                               <p id="letters-guessed">none so far</p>
                          </div>
+                        
                       </div>
                </div>
           </section>
      
-     		
-     		
-
-   
-
-<!-- javascript -->
-
-
-
-	</body>
+         <!-- Link to JS -->
+          <script type="text/javascript" src="game.js"></script>  
+      
+  </body>
 </html>
+
+
 
 
 

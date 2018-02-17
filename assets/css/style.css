@@ -1,29 +1,36 @@
 body {
-	background-color: black;
+  background-color: black;
 }
 
 .text {
-	padding-top: 10px;
-	margin-top: 30px;
-	font-family: 'Press Start 2P';
-	border: dashed 2px #33cc33;
-	color: #33cc33;
-	text-align: center;
+  padding-top: 10px;
+  margin-top: 30px;
+  font-family: 'Press Start 2P';
+  border: dashed 2px #33cc33;
+  color: #33cc33;
+  text-align: center;
+}
+
+button {
+  background-color: black;
+  color: #33cc33;
+  border: #33cc33 2px dashed;
+  margin-bottom: 10px;
 }
 
 #hangman {
-	margin-top: 30px;
-	margin-left: 20px;
-	width: 70%;
+  margin-top: 30px;
+  margin-left: 20px;
+  width: 70%;
 }
 
 .header-main{
-	width:100%;
-	margin:-2.5% 0 0 -1%;
-	padding:0;
+  width:100%;
+  margin:-2.5% 0 0 -1%;
+  padding:0;
 }
 
 #graphic{
-	width:130%;
-	max-height: 225px;
+  width:130%;
+  max-height: 225px;
 }
