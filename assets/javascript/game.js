@@ -4,7 +4,7 @@ wins: 0,
 losses: 0,
 }
 
-  //hangman object
+ //hangman words
   var words = ["saved by the bell",
     "Nintendo",
     "Bevis and Butthead",
@@ -17,16 +17,46 @@ losses: 0,
     "sony discman",
     ];
 
-  var isPlaying = false;
-  var youWin = ["Boo-ya!", "Boom Shakalaka!", "Sweeeet!"];
-  var youlose = ["oh snap! you lose", "Your Mom!" "You win! NOT!"]
-  var hangText = document.querySelector(".hang-text");
-  var rightText = document.querySelector(".right-text");
-  var wrongText = document.querySelector(".wrong-text");
-  var startButton = document.querySelector(".btn-start");
-  var replayButton = document.querySelector(".btn-replay");
-  var resetScore = document.querySelector(".reset");
+  //array with letters picked
+  var lettersGuessed = []; 
+  //array with number of guesses left
+  var guessesLeft = 10;
+  //array that holds the dashes according to the words length
+  var newArray = [];
+  //the computer should chose word randomly
+  var computerGuess = words[Math.floor(Math.random() * words.length)];
+  //array of letters of word chosen
+  var chosenWord = computerGuess.split("");
+
+  //keyboard letters for user to chose
+  var letters = ["A", "B" ,"C" ,"D" ,"E" ,"F" ,"G" ,"H" ,"I" ,"J",
+    "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", 
+    "V", "W", "X", "Y", "Z",
+    ];
+
+  //this generates a random word and returns it.
+function getRandomWord() {
+  var randomword = words[Math.floor(Math.random() * words.length)];
+  return randomword;
 }
+
+// replace characters with underscores to hide current word
+var wordHidden = currentWord.split("").map(function(){return "_"});
+
+  for (var i = 0; i < computerGuess.length; i++) {
+    newArray.push(" _ ");
+  document.getElementById("currentWord").innerHTML = newArray;
+  document.getElementById('guessesRemaining').innerHTML = "number of guesses remaining" + guessesLeft;
+  document.getElementById('lettersGuessed').innerHTML = "letters already guessed" + lettersGuessed;
+  }
+
+
+  var isPlaying = false;
+  var hasWon = false;
+  var hasLost = false;
+  var youWin = ["Boo-ya!", "Boom Shakalaka!", "Sweeeet!"];
+  var youLose = ["oh snap! you lose", "Your Mom!", "You win! NOT!"]
+
 
 resetScore.addEventListener("click",function(event){
   playerScore = resetScore();
@@ -34,28 +64,27 @@ resetScore.addEventListener("click",function(event){
 });
 
 replayButton.addEventListener("click",function(event){
-  if (wins) {
-    alert = "bet you cant do that again!";
+  if (haswon) {
+    alert("bet you cant do that again!");
   } else {
-    alert = "your mom did better than that!";
+    alert("your mom did better than that!");
   }
 });
 
+document.onkeyup = function(event) {
+  var letter = event.key;
 
-//function 
-
-function myFunction() {
-  var randomWord = words[math.floor(math.random() * words.length)];
+  if(isPlaying){
+  } else {
+    alert("Click start to play the game!")
+    return;
+  }
 }
 
 
-//keyboard letters for user to chose
-var letters = ["A", "B" ,"C" ,"D" ,"E" ,"F" ,"G" ,"H" ,"I" ,"J",
-    "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", 
-    "V", "W", "X", "Y", "Z",
-    ];
 
-//
+
+
 
 
 
