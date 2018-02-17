@@ -1,10 +1,9 @@
 //Global variables
 var playerScore = {
-wins: 0;
-losses: 0;
+wins: 0,
+losses: 0,
 }
 
-function (){
   //hangman object
   var words = ["saved by the bell",
     "Nintendo",
@@ -17,7 +16,6 @@ function (){
     "jurassic park",
     "sony discman",
     ];
-  var wordsCopy = [];
 
   var isPlaying = false;
   var youWin = ["Boo-ya!", "Boom Shakalaka!", "Sweeeet!"];
@@ -29,10 +27,6 @@ function (){
   var replayButton = document.querySelector(".btn-replay");
   var resetScore = document.querySelector(".reset");
 }
-
-startButton.addEventListener("click", function(event){
-  startGame = begin();
-});
 
 resetScore.addEventListener("click",function(event){
   playerScore = resetScore();
@@ -50,8 +44,9 @@ replayButton.addEventListener("click",function(event){
 
 //function 
 
-function
-  var randomWord = randomWordGenerator(words)
+function myFunction() {
+  var randomWord = words[math.floor(math.random() * words.length)];
+}
 
 
 //keyboard letters for user to chose
@@ -61,20 +56,6 @@ var letters = ["A", "B" ,"C" ,"D" ,"E" ,"F" ,"G" ,"H" ,"I" ,"J",
     ];
 
 //
-document.onkeyup =  function(event) {
-  var letters = event.key;
-}
 
-//variable to hold the guesses used so far
-var lettersGuessed =[];
-
-//tracks how many guesses are left
-var guessesLeft = 10;
-
-//variable for the current word
-var currentWord = computerChoice[Math.floor(Math.random() * computerChoice.length)];
-
-// replace characters with underscores to hide current word
-var wordHidden = currentWord.split("").map(function(){return "_"});
 
 

@@ -13,16 +13,8 @@
       <!-- Link to style sheet -->
       <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
-      <!-- Bootstrap JS -->
-      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
       <!-- Link to font -->
       <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
-
-      <!-- Link to JS -->
-      <script type="text/javascript" src="assets/javascript/game.js"></script>  
 
       <!-- Title displayed -->
       <title>Hangman: The Greatest Decade Ever</title>
@@ -43,15 +35,17 @@
           <section class="container wrapper">
                <div class="row">
                     <div class="col-md-4">
-                         <img id="hangman" src="assets/images/hangman.png">
+                     <img id="hangman" src="assets/images/hangman.png">
                     </div>
           
                       <div class="col-md-8">
                           <div class="text">
                               <p id="start"> Press "start" button to relive the 90's!</p>
-                              <button type="button">Start</button>
-                              <button type="button-02">Reset</button>
-                              <button type="button-03">Replay</button>
+                          
+                              <button class="btn-start">Start</button>
+                              <button class="btn-reset">Reset</button>
+                              <button class="btn-replay">Replay</button>
+                        
                               <p> Current 90's clue:</p>
                               <p id="current-word">What could it be?</p>
 
@@ -66,9 +60,14 @@
                       </div>
                </div>
           </section>
-     
+
+          <!-- Bootstrap JS -->
+          <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>   
+
          <!-- Link to JS -->
-          <script type="text/javascript" src="game.js"></script>  
+          <script type="text/javascript" src="assets/javascript/game.js"></script>  
       
   </body>
 </html>
