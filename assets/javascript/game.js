@@ -4,87 +4,149 @@ wins: 0,
 losses: 0,
 }
 
+$(document).ready(function () {
+  let game = new Game()
+})
+
+function Game(){
+  this.imgDisplay = $("img")
+  this.lettersGuessedDisplay = $(".letters-guessed")
+  this.lastGuessDisplay = $(".last-guess")
+  this.revealedWordDisplay = $(".revealed-word")
+  this.clueDisplay = $(".clue")
+  this.winsDisplay = $(".wins")
+  this.lossesDisplay = $(".losses")
+  this.questionBank = [
+  {
+    "img": "https://image.ibb.co/eVJz3H/nintendo.png",
+    "clue": "Super Mario Bros",
+    "answer": "Nintendo"
+  },
+  {
+    "img": "https://image.ibb.co/daLqAx/rollerblades.png"
+    "clue": "how you got around when you didnt want to walk",
+    "answer": "rollerblades"
+  }
+  {
+    "img": "https://image.ibb.co/mGAqAx/tamagotchi.png"
+    "clue": "digital pets",
+    "answer": "tamagotchis",
+  }
+  {
+    "img": "https://image.ibb.co/dgoXOH/walkman.png"
+    "clue": "how you listened to your favorite jams",
+    "answer": "walkman"
+  }
+  {
+    "img": "https://image.ibb.co/f9xRiH/blockbuster.png",
+    "clue": "the only way to watch movies",
+    "answer": "Blockbuster"
+  }
+  {
+    "img":"https://image.ibb.co/dOFqAx/clueless.png",
+    "clue": "as if",
+    "answer": "clueless"
+  }
+  ];
+  this.lettersGuessed = []
+  this.correctLettersGuessed = []
+  this.winScore = 0
+  this.lossesScore = 0
+
+  this.setup();
+};
+
+Game.prototype.setup = function () {
+  this.replay ()
+
+  $(document).on('keyup', event => {
+    this.processGuess(event.key);
+  })
+
+  $('.replay-btn').on('click', event => {
+    this.replay ();
+  })
+
+  console.log(this.answer)
+};
+
+Game.prototype.replay = function () {
+  this.winScore = 0;
+  this.winsDisplay.text('')
+  this.lossesDisplay.text('')
+  this.replay();
+};
+
+Game.prototype.reset = function () {
+    let questionNum = Math.floor(Math.random() * this.questionBank.length)
+    let question = this.questionBank[questionNum]
+    this.answer = question["answer"];
+  
+    this.correctLettersGuessed = [];
+    this.lettersGuessed = [];
+  
+    this.imgDisplay.attr("src", question["img"])
+    this.lettersGuessedDisplay.empty();
+    this.lastGuessDisplay.text("Make Guess");
+    this.clueDisplay.text(question["clue"]);
+    this.revealedWordDisplay.text(this.getRevealedWord());
+  };
+
+  Game.prototype.processGuess = function (guess) {
+    if (this.getRevealedWord() === this.answer) {
+      return;
+    }
+  
+    if (this.isGuessValid(guess)) {
+      this.correctLettersGuessed.push(guess);
+    }
+  
+    if (this.lettersGuessed.indexOf(guess) === -1) {
+      this.lettersGuessed.push(guess);
+    }
+  
+    this.lastGuessDisplay.text(guess);
+    this.lettersGuessedDisplay.text(this.lettersGuessed);
+    this.revealedWordDisplay.text(this.getRevealedWord())
+  
+    if (this.getRevealedWord() === this.answer) {
+      this.winScore++;
+      this.winsDisplay.text(this.winScore);
+    }
+  }
+  
+  Game.prototype.isGuessValid = function(guess) {
+    if (this.answer.indexOf(guess) > -1) {
+      return true
+    }
+    else {
+      return false
+    }
+  };
+  
+  Game.prototype.getRevealedWord = function () {
+    let revealedWord = "";
+  
+    for (let i = 0; i < this.answer.length; i++) {
+      if (this.correctLettersGuessed.indexOf(this.answer[i]) > -1) {
+        revealedWord += this.answer[i];
+      }
+      else {
+        revealedWord += "_"
+      }
+    }
+  
+    return revealedWord;
+  };
  //hangman words
-  var words = ["saved by the bell",
+  var words = ["tamagotchis",
     "Nintendo",
-    "Bevis and Butthead",
     "clueless",
-    "America Online",
-    "mighty morphin power rangers",
-    "Waynes world",
-    "vanilla ice",
-    "jurassic park",
-    "sony discman",
+    "blockbuster",
+    "walkman",
+    "rollerblades",
     ];
 
-  //array with letters picked
-  var lettersGuessed = []; 
-  //array with number of guesses left
-  var guessesLeft = 10;
-  //array that holds the dashes according to the words length
-  var newArray = [];
-  //the computer should chose word randomly
-  var computerGuess = words[Math.floor(Math.random() * words.length)];
-  //array of letters of word chosen
-  var chosenWord = computerGuess.split("");
-
-  //keyboard letters for user to chose
-  var letters = ["A", "B" ,"C" ,"D" ,"E" ,"F" ,"G" ,"H" ,"I" ,"J",
-    "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", 
-    "V", "W", "X", "Y", "Z",
-    ];
-
-  //this generates a random word and returns it.
-function getRandomWord() {
-  var randomword = words[Math.floor(Math.random() * words.length)];
-  return randomword;
-}
-
-// replace characters with underscores to hide current word
-var wordHidden = currentWord.split("").map(function(){return "_"});
-
-  for (var i = 0; i < computerGuess.length; i++) {
-    newArray.push(" _ ");
-  document.getElementById("currentWord").innerHTML = newArray;
-  document.getElementById('guessesRemaining').innerHTML = "number of guesses remaining" + guessesLeft;
-  document.getElementById('lettersGuessed').innerHTML = "letters already guessed" + lettersGuessed;
-  }
-
-
-  var isPlaying = false;
-  var hasWon = false;
-  var hasLost = false;
-  var youWin = ["Boo-ya!", "Boom Shakalaka!", "Sweeeet!"];
-  var youLose = ["oh snap! you lose", "Your Mom!", "You win! NOT!"]
-
-
-resetScore.addEventListener("click",function(event){
-  playerScore = resetScore();
-  updateScore(playerScore.wins, playerScore.losses);
-});
-
-replayButton.addEventListener("click",function(event){
-  if (haswon) {
-    alert("bet you cant do that again!");
-  } else {
-    alert("your mom did better than that!");
-  }
-});
-
-document.onkeyup = function(event) {
-  var letter = event.key;
-
-  if(isPlaying){
-  } else {
-    alert("Click start to play the game!")
-    return;
-  }
-}
-
-
-
-
-
-
+ 
 
 

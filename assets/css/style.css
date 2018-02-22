@@ -2,7 +2,20 @@ body {
   background-color: black;
 }
 
-.text {
+#graphic{
+  width:130%;
+  max-height: 225px;
+}
+
+.header-main {
+  width:100%;
+  margin:-2.5% 0 0 -1%;
+  padding:0;
+}
+
+
+
+{
   padding-top: 10px;
   margin-top: 30px;
   font-family: 'Press Start 2P';
@@ -15,7 +28,8 @@ button {
   background-color: black;
   color: #33cc33;
   border: #33cc33 2px dashed;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 #hangman {
@@ -24,13 +38,6 @@ button {
   width: 70%;
 }
 
-.header-main{
-  width:100%;
-  margin:-2.5% 0 0 -1%;
-  padding:0;
-}
 
-#graphic{
-  width:130%;
-  max-height: 225px;
-}
+
+
